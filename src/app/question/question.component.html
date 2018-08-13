@@ -1,0 +1,130 @@
+<form *ngIf="questions$" [ngSwitch]="questionStep$">
+  <fieldset *ngSwitchCase="1">
+    <legend>Paskola</legend>
+    <div *ngIf="questions$.loanAmount">
+      <label for="loanAmount">{{questions$.loanAmount.title}}</label>
+      <mat-slider class="form-field" id="loanAmount" min="{{questions$.loanAmount.min}}" max="{{questions$.loanAmount.max}}" step="{{questions$.loanAmount.step}}"
+        thumbLabel="true"></mat-slider>
+    </div>
+
+    <div *ngIf="questions$.loanDuration">
+      <label>{{questions$.loanDuration.title}}</label>
+      <mat-slider class="form-field" min="{{questions$.loanDuration.min}}" max="{{questions$.loanDuration.max}}" step="{{questions$.loanDuration.step}}"
+        thumbLabel="true"></mat-slider>
+    </div>
+
+    <div *ngIf="questions$.loanPayBackMonthDay">
+      <label>{{questions$.loanPayBackMonthDay.title}}</label>
+      <mat-form-field class="form-field">
+        <mat-select placeholder="">
+          <mat-option *ngFor="let day of questions$.loanPayBackMonthDay.options" [value]="day">
+            {{day}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </fieldset>
+
+  <fieldset *ngSwitchCase="2">
+    <legend>Pajamos ir įsipareigojimai</legend>
+    <div *ngIf="questions$.currentSalary">
+      <label>{{questions$.currentSalary.title}}</label>
+      <mat-form-field class="form-field">
+        <input matInput>
+      </mat-form-field>
+    </div>
+    <div *ngIf="questions$.currentRemainingFinancialCommitment">
+      <label>{{questions$.currentRemainingFinancialCommitment.title}}</label>
+      <mat-form-field class="form-field">
+        <input matInput>
+      </mat-form-field>
+    </div>
+    <div *ngIf="questions$.currentFinancialCommitmentMonthlyPayment">
+      <label>{{questions$.currentFinancialCommitmentMonthlyPayment.title}}</label>
+      <mat-form-field class="form-field">
+        <input matInput>
+      </mat-form-field>
+    </div>
+  </fieldset>
+
+  <fieldset *ngSwitchCase="3">
+    <legend>Kliento duomenys</legend>
+
+    <div *ngIf="questions$.name">
+      <label>{{questions$.name.title}}</label>
+      <mat-form-field class="form-field">
+        <input matInput>
+      </mat-form-field>
+    </div>
+    <div *ngIf="questions$.surname">
+      <label>{{questions$.surname.title}}</label>
+      <mat-form-field class="form-field">
+        <input matInput>
+      </mat-form-field>
+    </div>
+    <div *ngIf="questions$.id">
+      <label>{{questions$.id.title}}</label>
+      <mat-form-field class="form-field">
+        <input matInput>
+      </mat-form-field>
+    </div>
+  </fieldset>
+
+  <fieldset *ngSwitchCase="4">
+    <legend>Asmeniniai duomenys</legend>
+
+    <div *ngIf="questions$.jobContractType">
+      <label>{{questions$.jobContractType.title}}</label>
+      <mat-form-field class="form-field">
+        <mat-select placeholder="">
+          <mat-option *ngFor="let type of questions$.jobContractType.options" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div *ngIf="questions$.relationshipStatus">
+      <label>{{questions$.relationshipStatus.title}}</label>
+      <mat-form-field class="form-field">
+        <mat-select placeholder="">
+          <mat-option *ngFor="let type of questions$.relationshipStatus.options" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div *ngIf="questions$.loanType">
+      <label>{{questions$.loanType.title}}</label>
+      <mat-form-field class="form-field">
+        <mat-select placeholder="">
+          <mat-option *ngFor="let type of questions$.loanType.options" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </fieldset>
+
+  <fieldset *ngSwitchCase="5">
+    <legend>Kontaktiniai duomenys</legend>
+    <div *ngIf="questions$.phone">
+      <label>{{questions$.phone.title}}</label>
+      <mat-form-field class="form-field">
+        <input matInput>
+      </mat-form-field>
+    </div>
+    <div *ngIf="questions$.otherInfo">
+      <label>{{questions$.otherInfo.title}}</label>
+      <p>{{questions$.otherInfo.description}}</p>
+      <mat-form-field class="form-field">
+        <textarea matInput></textarea>
+      </mat-form-field>
+    </div>
+  </fieldset>
+
+  <nav>
+    <button type="button" mat-button routerLink="/question/{{questionStep$-1}}" [disabled]="questionStep$ <= 1">Atgal</button>
+    <button type="button" mat-button routerLink="/question/{{questionStep$+1}}" [disabled]="questionStep$ >= 5">Kitas</button>
+    <button type="submit" mat-button [disabled]="questionStep$ < 5">Siųsti paraišką</button>
+  </nav>
+</form>

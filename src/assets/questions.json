@@ -1,0 +1,76 @@
+{
+    "loanAmount": {
+        "title": "Paskolos suma",
+        "min": 500,
+        "max": 20000,
+        "step": 50
+    },
+    "loanDuration": {
+        "title": "Paskolos terminas",
+        "min": 6,
+        "max": 60,
+        "step": 1
+    },
+    "loanPayBackMonthDay": {
+        "title": "Paskolos ir palūkanų mokėjimo diena",
+        "options": [
+            3,
+            7,
+            12,
+            17,
+            22,
+            27
+        ]
+    },
+    "currentSalary": {
+        "title": "Mėnesinis atlyginimas į rankas"
+    },
+    "currentRemainingFinancialCommitment": {
+        "title": "Esamų įsipareigojimų likutis"
+    },
+    "currentFinancialCommitmentMonthlyPayment": {
+        "title": "Esamų įsipareigojimų mėnesinė įmoka"
+    },
+    "name": {
+        "title": "Vardas"
+    },
+    "surname": {
+        "title": "Pavardė"
+    },
+    "id": {
+        "title": "Asmens kodas"
+    },
+    "jobContractType": {
+        "title": "Darbo sutarties tipas",
+        "options": [
+            "Neterminuota",
+            "Terminuota",
+            "Kita",
+            "Nėra informacijos"
+        ]
+    },
+    "relationshipStatus": {
+        "title": "Šeimyninė padėtis",
+        "options": [
+            "Nevedęs (netekėjusi)",
+            "Vedęs (ištekėjusi)",
+            "Bendras gyvenimas nesusituokus",
+            "Išsiskyręs (-usi)",
+            "Našlys (-ė)"
+        ]
+    },
+    "loanType": {
+        "title": "Kredito tipas",
+        "options": [
+            "Asmeninis kreditas",
+            "Šeimos/namų ūkio kreditas"
+        ]
+    },
+    "phone": {
+        "title": "Telefono numeris"
+    },
+    "otherInfo": {
+        "title": "Kita svarbi informacija",
+        "description": "Kita svarbi informacija bei aplinkybės galinčios turėti įtakos Jūsų (šeimos)finansinei padėčiai ir įsipareigojimų vykdymui (pvz. šeimos išlaidos per mėn., numatomas pajamų sumažėjimas ir kt)."
+    }
+}
